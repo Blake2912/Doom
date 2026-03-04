@@ -4,5 +4,8 @@
 #define TILE_SIZE 64
 #define MAP_WIDTH 8
 #define MAP_HEIGHT 8
+#define SCREEN_HEIGHT 512
+#define SCREEN_WIDTH 512
+#define FOV 60
 
 #endif

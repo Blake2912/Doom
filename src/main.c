@@ -4,6 +4,7 @@
 #include "player.h"
 #include "map.h"
 #include "raycast.h"
+#include "config.h"
 
 
 int main() {
@@ -16,8 +17,8 @@ int main() {
         "Doom",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
-        512,
-        512,
+        SCREEN_WIDTH,
+        SCREEN_HEIGHT,
         0
     );
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
