@@ -4,6 +4,14 @@
 
 #include <SDL2/SDL.h>
 
+struct rayCastInfo {
+    float distance;
+    int side;
+    float mapX;
+    float mapY;
+};
+
 void castRay(SDL_Renderer * renderer, float startX, float startY, float angle);
+struct rayCastInfo rayCastV2(float startX, float startY, float angle);
 
 #endif
