@@ -15,8 +15,8 @@ int main() {
         "Doom",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
-        500,
-        500,
+        512,
+        512,
         0
     );
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);

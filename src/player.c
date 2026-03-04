@@ -38,4 +38,19 @@ void updatePlayer()
         playerX = 3.5 * TILE_SIZE;
         playerY = 3.5 * TILE_SIZE;
     }
+
+    int playerSize = 5;
+    if (playerX < playerSize) {
+        playerX = playerSize;
+    }
+    if (playerY < playerSize){
+        playerY = playerSize;
+    }
+    if (playerX > MAP_WIDTH * TILE_SIZE - playerSize){
+        playerX = MAP_WIDTH * TILE_SIZE - playerSize;
+    }
+
+    if (playerY > MAP_HEIGHT * TILE_SIZE - playerSize){
+        playerY = MAP_WIDTH * TILE_SIZE - playerSize;
+    }
 }
