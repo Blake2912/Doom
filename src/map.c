@@ -3,7 +3,7 @@
 
 
 
-int worldMap[8][8] = {
+int worldMap[MAP_HEIGHT][MAP_WIDTH] = {
     {1,1,1,1,1,1,1,1},
     {1,0,0,0,0,0,0,1},
     {1,0,1,0,1,0,0,1},

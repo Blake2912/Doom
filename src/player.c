@@ -5,6 +5,7 @@ float playerX = 3.5 * TILE_SIZE;
 float playerY = 3.5 * TILE_SIZE;
 
 float playerSpeed = 2.5f;
+float playerAngle = 0;
 
 void drawPlayer(SDL_Renderer* renderer)
 {
@@ -40,6 +41,7 @@ void updatePlayer()
     }
 
     int playerSize = 5;
+    // Boundary conditions
     if (playerX < playerSize) {
         playerX = playerSize;
     }
@@ -52,5 +54,12 @@ void updatePlayer()
 
     if (playerY > MAP_HEIGHT * TILE_SIZE - playerSize){
         playerY = MAP_WIDTH * TILE_SIZE - playerSize;
+    }
+
+    if (keys[SDL_SCANCODE_LEFT]){
+        playerAngle -= 0.05;
+    }
+    if (keys[SDL_SCANCODE_RIGHT]){
+        playerAngle += 0.05;
     }
 }

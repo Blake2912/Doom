@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include "player.h"
 #include "map.h"
+#include "raycast.h"
 
 
 int main() {
@@ -49,6 +50,7 @@ int main() {
 
         drawMap(renderer);
         drawPlayer(renderer);
+        castRay(renderer, playerX, playerY, playerAngle);
 
         /* Present Frame */
         SDL_RenderPresent(renderer);

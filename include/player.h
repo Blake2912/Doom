@@ -5,6 +5,7 @@
 
 extern float playerX;
 extern float playerY;
+extern float playerAngle;
 
 void drawPlayer(SDL_Renderer* renderer);
 void updatePlayer();
