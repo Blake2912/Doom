@@ -1,0 +1,15 @@
+# Compiled binaries
+raycaster
+*.out
+*.o
+
+# Build folders
+build/
+bin/
+
+# macOS files
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
