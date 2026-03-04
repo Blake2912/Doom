@@ -13,3 +13,4 @@ bin/
 # Editor folders
 .vscode/
 .idea/
+.cache/
