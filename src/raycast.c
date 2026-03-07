@@ -41,6 +41,8 @@ struct rayCastInfo rayCastV2(float startX, float startY, float angle)
     int hit = 0;
     int side = 0;
 
+    double wallX;
+
     while (!hit)
     {
         if (sideDistX < sideDistY)
@@ -79,12 +81,23 @@ struct rayCastInfo rayCastV2(float startX, float startY, float angle)
     float hitX = startX + rayDirX * perpWallDist * TILE_SIZE;
     float hitY = startY + rayDirY * perpWallDist * TILE_SIZE;
 
+
+    if (side == 0){
+        wallX = posY + perpWallDist * rayDirY;
+    }
+    else {
+        wallX = posX + perpWallDist * rayDirX;
+    }
+
+    wallX -= floor(wallX);
+
     struct rayCastInfo returnObj;
 
     returnObj.distance = perpWallDist;
     returnObj.side = side;
     returnObj.mapX = mapX;
     returnObj.mapY = mapY;
+    returnObj.wallX = wallX;
 
     return returnObj;
 }

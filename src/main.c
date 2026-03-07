@@ -4,9 +4,9 @@
 #include <math.h>
 
 #include "player.h"
-#include "map.h"
 #include "raycast.h"
 #include "config.h"
+#include "texture.h"
 
 int main()
 {
@@ -39,6 +39,8 @@ int main()
 
     bool running = true;
     SDL_Event event;
+
+    loadTexture();
 
     Uint32 lastTime = SDL_GetTicks();
     int frames = 0;
@@ -108,18 +110,26 @@ int main()
             int drawStart = -lineHeight / 2 + SCREEN_HEIGHT / 2;
             int drawEnd = lineHeight / 2 + SCREEN_HEIGHT / 2;
 
-            if (drawStart < 0)
-                drawStart = 0;
+            int texX = (int)(hit.wallX * TEX_WIDTH);
 
-            if (drawEnd >= SCREEN_HEIGHT)
-                drawEnd = SCREEN_HEIGHT - 1;
+            double step = 1.0 * TEX_HEIGHT / lineHeight;
+            double texPos = (drawStart - (double)SCREEN_HEIGHT / 2 + (double)lineHeight / 2) * step;
 
-            if (hit.side == 1)
-                SDL_SetRenderDrawColor(renderer, 180, 180, 180, 255);
-            else
-                SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            for (int y = drawStart; y < drawEnd; y++)
+            {
+                int texY = (int)texPos & (TEX_HEIGHT - 1);
+                texPos += step;
 
-            SDL_RenderDrawLine(renderer, x, drawStart, x, drawEnd);
+                Uint32 color = wallTexture[TEX_HEIGHT * texY + texX];
+
+                SDL_SetRenderDrawColor(renderer,
+                    (color >> 16) & 255,
+                    (color >> 8) & 255,
+                    color & 255,
+                    255);
+
+                SDL_RenderDrawPoint(renderer, x, y);
+            }
 
             rayAngle += rayStep;
         }

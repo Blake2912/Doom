@@ -9,6 +9,7 @@ struct rayCastInfo {
     int side;
     float mapX;
     float mapY;
+    float wallX;
 };
 
 void castRay(SDL_Renderer * renderer, float startX, float startY, float angle);

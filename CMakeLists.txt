@@ -18,6 +18,7 @@ add_executable(
     src/map.c
     src/player.c
     src/raycast.c
+    src/texture.c
 )
 
 target_link_libraries(doom SDL2)
